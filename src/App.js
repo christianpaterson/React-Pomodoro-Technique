@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import ButtonContainer from "./ButtonContainer";
+import TomatoBox from "./TomatoBox";
+import "./App.css";
 
-function App() {
+export default function App() {
+  const [tomatoes, setTomatoes] = useState("");
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="window">
+        <h2>Tomato Counter</h2>
+        <TomatoBox tomatoProp={tomatoes} />
+        <ButtonContainer setTomatoes={setTomatoes} tomatoProp={tomatoes} />
+      </div>
     </div>
   );
 }
-
-export default App;
